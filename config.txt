@@ -64,3 +64,6 @@ dtoverlay=miniuart-bt
 # Bluetooth. This has a small performance impact. See
 # https://www.raspberrypi.org/documentation/computers/config_txt.html#overclocking.
 core_freq=250
+
+# trigger low power mode on power off
+dtoverlay=gpio-poweroff

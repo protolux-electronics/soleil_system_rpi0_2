@@ -1,8 +1,8 @@
-defmodule NervesSystemRpi02.MixProject do
+defmodule SoleilSystemRpi02.MixProject do
   use Mix.Project
 
-  @github_organization "fhunleth"
-  @app :nerves_system_rpi0_2
+  @github_organization "gworkman"
+  @app :soleil_system_rpi0_2
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
@@ -59,7 +59,7 @@ defmodule NervesSystemRpi02.MixProject do
         {"TARGET_OS", "linux"},
         {"TARGET_ABI", "gnu"},
         {"TARGET_GCC_FLAGS",
-          "-mabi=lp64 -fstack-protector-strong -mcpu=cortex-a53 -fPIE -pie -Wl,-z,now -Wl,-z,relro"}
+         "-mabi=lp64 -fstack-protector-strong -mcpu=cortex-a53 -fPIE -pie -Wl,-z,now -Wl,-z,relro"}
       ],
       checksum: package_files()
     ]
