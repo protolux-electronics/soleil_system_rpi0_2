@@ -1,15 +1,15 @@
-# Raspberry Pi Zero 2 W and 3 A+ (64-bit)
+# Soleil Raspberry Pi Zero 2W (64-bit)
 
-[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_rpi0_2.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_rpi0_2)
-[![Hex version](https://img.shields.io/hexpm/v/nerves_system_rpi0_2.svg "Hex version")](https://hex.pm/packages/nerves_system_rpi0_2)
+[![Hex version](https://img.shields.io/hexpm/v/soleil_system_rpi0_2.svg "Hex version")](https://hex.pm/packages/soleil_system_rpi0_2)
 
-This is the base Nerves System configuration for the Raspberry Pi Zero 2 W with
-the USB port running in gadget mode. It is similar to
+This is the base Nerves System configuration for the Soleil power management and 
+sleep control board mounted on the Raspberry Pi Zero 2 W.
+It has the USB port running in gadget mode, and is similar to
 [nerves_system_rpi3a](https://github.com/nerves-project/nerves_system_rpi3a)
 except that it runs the ARM Cortex-A53 in 64-bit mode to support the [Erlang
 JIT](https://www.erlang.org/doc/apps/erts/beamasm).
 
-![Raspberry Pi Zero 2 W image](assets/images/rpi-zero2.jpg)
+![Raspberry Pi Zero 2 W image](assets/images/soleil.jpg)
 <br><sup>[Image credit](#rpi)</sup>
 
 | Feature              | Description                      |
