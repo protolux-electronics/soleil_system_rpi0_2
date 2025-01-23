@@ -12,6 +12,37 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v1.29.1
+
+This is a security/bug fix update.
+
+* Updated dependencies
+  * [nerves_system_br v1.29.3](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.29.3)
+  * [Buildroot 2024.08.3](https://lore.kernel.org/buildroot/874j3e17ek.fsf@dell.be.48ers.dk/T/)
+  * [Erlang/OTP 27.2](https://erlang.org/download/OTP-27.2.README)
+  * Linux 6.6.64 with the Raspberry Pi and PREEMPT_RT patches
+  * [fwup v1.12.0](https://github.com/fwup-home/fwup/releases/tag/v1.12.0)
+
+## v1.29.0
+
+This is a major Erlang and Buildroot update.
+
+Please see the [nerves_system_br v1.29.0 release notes](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.29.0)
+for upgrade instructions if you've forked this system.
+
+* Changes
+  * Applied and enabled the Real-Time Linux patch set, PREEMPT_RT. Please see
+    write-ups on the web for benefits and how to use. The impact of this patch
+    shouldn't be noticeable to most Nerves users.
+  * Switch CPU frequency governor from conservative to the more modern
+    schedutil. See [LWN article](https://lwn.net/Articles/682391/) for details.
+  * Upgrade `fwup-revert.conf` to more capable `fwup-ops.conf`
+
+* Updated dependencies
+  * [nerves_system_br v1.29.1](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.29.1)
+  * [Buildroot 2024.08.2](https://lore.kernel.org/buildroot/871pzex7gn.fsf@dell.be.48ers.dk/T/)
+  * Linux 6.6.51 (Raspberry Pi stable_20241008 release)
+
 ## v1.28.1
 
 This is a security/bug fix update.
