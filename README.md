@@ -2,44 +2,44 @@
 
 [![Hex version](https://img.shields.io/hexpm/v/soleil_system_rpi0_2.svg "Hex version")](https://hex.pm/packages/soleil_system_rpi0_2)
 
-This is the base Nerves System configuration for the Soleil power management and 
-sleep control board mounted on the Raspberry Pi Zero 2 W.
-It has the USB port running in gadget mode, and is similar to
+This is the base Nerves System configuration for the Soleil power management and
+sleep control board mounted on the Raspberry Pi Zero 2 W. It has the USB port
+running in gadget mode, and is similar to
 [nerves_system_rpi3a](https://github.com/nerves-project/nerves_system_rpi3a)
-except that it runs the ARM Cortex-A53 in 64-bit mode to support the [Erlang
-JIT](https://www.erlang.org/doc/apps/erts/beamasm).
+except that it runs the ARM Cortex-A53 in 64-bit mode to support the
+[Erlang JIT](https://www.erlang.org/doc/apps/erts/beamasm).
 
 ![Raspberry Pi Zero 2 W image](assets/images/soleil.jpg)
-<br><sup>[Image credit](#rpi)</sup>
 
-| Feature              | Description                      |
-| -------------------- | -------------------------------- |
-| CPU                  | 1.4 GHz quad-core ARM Cortex-A53 |
-| Memory               | 512 MB DRAM                      |
-| Storage              | MicroSD                          |
-| Linux kernel         | 6.1 w/ Raspberry Pi patches      |
-| IEx terminal         | UART `ttyAMA0` Can be changed to HDMI |
-| GPIO, I2C, SPI       | Yes - [Elixir Circuits](https://github.com/elixir-circuits) |
-| ADC                  | No                               |
-| PWM                  | Yes, but no Elixir support       |
-| UART                 | 1 available - `ttyAMA0`          |
-| Display              | HDMI or 7" RPi Touchscreen       |
-| Camera               | Official RPi Cameras (libcamera) |
-| Ethernet             | No                               |
-| WiFi                 | Yes                              |
-| Bluetooth            | [See Bluetooth](#bluetooth)      |
-| Audio                | HDMI out                         |
+| Feature        | Description                                                 |
+| -------------- | ----------------------------------------------------------- |
+| CPU            | 1.4 GHz quad-core ARM Cortex-A53                            |
+| Memory         | 512 MB DRAM                                                 |
+| Storage        | MicroSD                                                     |
+| Linux kernel   | 6.1 w/ Raspberry Pi patches                                 |
+| IEx terminal   | UART `ttyAMA0` Can be changed to HDMI                       |
+| GPIO, I2C, SPI | Yes - [Elixir Circuits](https://github.com/elixir-circuits) |
+| ADC            | No                                                          |
+| PWM            | Yes, but no Elixir support                                  |
+| UART           | 1 available - `ttyAMA0`                                     |
+| Display        | HDMI or 7" RPi Touchscreen                                  |
+| Camera         | Official RPi Cameras (libcamera)                            |
+| Ethernet       | No                                                          |
+| WiFi           | Yes                                                         |
+| Bluetooth      | [See Bluetooth](#bluetooth)                                 |
+| Audio          | HDMI out                                                    |
 
 ## Using
 
-The most common way of using this Nerves System is create a project with `mix
-nerves.new` and to export `MIX_TARGET=rpi0_2`. See the [Getting started
-guide](https://hexdocs.pm/nerves/getting-started.html#creating-a-new-nerves-app)
+The most common way of using this Nerves System is create a project with
+`mix
+nerves.new` and to export `MIX_TARGET=rpi0_2`. See the
+[Getting started guide](https://hexdocs.pm/nerves/getting-started.html#creating-a-new-nerves-app)
 for more information.
 
 If you need custom modifications to this system for your device, clone this
-repository and update as described in [Making custom
-systems](https://hexdocs.pm/nerves/customizing-systems.html).
+repository and update as described in
+[Making custom systems](https://hexdocs.pm/nerves/customizing-systems.html).
 
 ## Supported WiFi devices
 
@@ -49,9 +49,9 @@ The base image includes drivers for the onboard Raspberry Pi Zero 2 wifi module
 ## Camera
 
 This system supports the official Raspberry Pi camera modules via
-[`libcamera`](https://libcamera.org/). The `libcamera` applications are included so it's
-possible to replicate many of the examples in the official [Raspberry Pi Camera
-Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html).
+[`libcamera`](https://libcamera.org/). The `libcamera` applications are included
+so it's possible to replicate many of the examples in the official
+[Raspberry Pi Camera Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html).
 
 Here's an example commandline to run:
 
@@ -96,7 +96,6 @@ To do this, you'll need a USB A to USB A connector like
 [this](https://www.monoprice.com/product?p_id=5443) or
 [this](https://www.microcenter.com/product/431166/usb-a-to-a-high-speed-development-board-cable).
 
-
 ## Linux's preempt_rt patches
 
 If you need better real-time performance from the Linux kernel, the `preempt_rt`
@@ -117,7 +116,7 @@ make the following change to the Linux configuration:
 ```text
 -CONFIG_PREEMPT=y
 +CONFIG_PREEMPT_RT_FULL=y
- ```
+```
 
 Build the system and you should now have a preempt_rt kernel.
 
@@ -133,9 +132,9 @@ function.
 
 Keys used by this system are:
 
-Key                    | Example Value     | Description
-:--------------------- | :---------------- | :----------
-`nerves_serial_number` | `"12345678"`      | By default, this string is used to create unique hostnames and Erlang node names. If unset, it defaults to part of the Raspberry Pi's device ID.
+| Key                    | Example Value | Description                                                                                                                                      |
+| :--------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nerves_serial_number` | `"12345678"`  | By default, this string is used to create unique hostnames and Erlang node names. If unset, it defaults to part of the Raspberry Pi's device ID. |
 
 The normal procedure would be to set these keys once in manufacturing or before
 deployment and then leave them alone.
@@ -175,5 +174,3 @@ kernel version used here. `nerves_system_br` provides the versions of
 the Linux kernel to avoid any issues. Unfortunately, none of these are tagged by
 the Raspberry Pi Foundation so I either attempt to match what's in Raspbian or
 take versions of the repositories that have similar commit times.
-
-[Image credit](#rpi): This image is from [raspberrypi.org](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/).
