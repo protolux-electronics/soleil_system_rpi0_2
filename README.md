@@ -33,7 +33,8 @@ except that it runs the ARM Cortex-A53 in 64-bit mode to support the
 
 The most common way of using this Nerves System is create a project with
 `mix
-nerves.new` and to export `MIX_TARGET=rpi0_2`. See the
+nerves.new` and to export `MIX_TARGET=soleil_rpi0_2`. Add this system to
+your `mix.exs`. Then see the
 [Getting started guide](https://hexdocs.pm/nerves/getting-started.html#creating-a-new-nerves-app)
 for more information.
 
